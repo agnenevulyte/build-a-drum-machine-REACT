@@ -1,6 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import DrumPads from "./DrumPads";
+import Display from "./Display";
 
 export default function DrumMachine() {
+  const [currentPlayedSound, setCurrentPlayedSound] = useState("");
+
   // 2. when we get the data, press keyboard keys, get the sound
   useEffect(() => {
     document.addEventListener("keydown", e => {
@@ -32,14 +36,17 @@ export default function DrumMachine() {
 
   // mapping through the array of objects
   function mapIds(id) {
+    let res = "";
     console.log("passed in id: ", id);
     arr.map(each => {
       console.log("each ", each);
       if (each.id === id) {
         console.log("each id ", each.id);
         console.log(each.sound);
+        res = each.sound;
       }
     });
+    return res;
   }
 
   // 1. Play the sound function from HTML5 audio when clicked
@@ -47,130 +54,14 @@ export default function DrumMachine() {
     var vid = document.getElementById(str1);
     vid.play();
     console.log("clicked", str1);
-    mapIds(str1);
+    const str = mapIds(str1);
+    setCurrentPlayedSound(str);
   };
 
   return (
     <div>
-      <div id="drum-machine">
-        <div id="display">
-          <div className="drum-pad-rows">
-            <div
-              className="drum-pad"
-              id="Heater-1"
-              onClick={() => playVid("Q")}
-            >
-              Q
-              <audio id="Q" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-            <div
-              className="drum-pad"
-              id="Heater-2"
-              onClick={() => playVid("W", "Heater-2")}
-            >
-              W
-              <audio id="W" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-            <div
-              className="drum-pad"
-              id="Heater-3"
-              onClick={() => playVid("E", "Heater-3")}
-            >
-              E
-              <audio id="E" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-          </div>
-          <div className="drum-pad-rows">
-            <div
-              className="drum-pad"
-              id="RP4_KICK_1"
-              onClick={() => playVid("A")}
-            >
-              A
-              <audio id="A" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-            <div
-              className="drum-pad"
-              id="Heater-6"
-              onClick={() => playVid("S")}
-            >
-              S
-              <audio id="S" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-            <div className="drum-pad" id="Chord_1" onClick={() => playVid("D")}>
-              D
-              <audio id="D" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-          </div>
-          <div className="drum-pad-rows">
-            <div className="drum-pad" id="Chord_2" onClick={() => playVid("Z")}>
-              Z
-              <audio id="Z" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-            <div className="drum-pad" id="Chord_3" onClick={() => playVid("X")}>
-              X
-              <audio id="X" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-            <div
-              className="drum-pad"
-              id="punchy_kick_1"
-              onClick={() => playVid("C")}
-            >
-              C
-              <audio id="C" className="clip">
-                <source
-                  src="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-            </div>
-          </div>
-          {/* the current id board */}
-          <div id="currentID" style={{ border: "1px solid purple" }}>
-            lalala
-          </div>
-        </div>
-      </div>
+      <DrumPads playVid={playVid} />
+      <Display valueToLogOut={currentPlayedSound} />
     </div>
   );
 }
