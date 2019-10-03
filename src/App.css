@@ -1,0 +1,27 @@
+#drum-machine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid red;
+}
+
+#display {
+  flex-direction: column;
+  border: 1px solid green;
+}
+
+.drum-pad-rows {
+  display: flex;
+}
+
+.drum-pad {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border: 1px solid yellow;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
