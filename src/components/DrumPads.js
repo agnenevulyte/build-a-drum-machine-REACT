@@ -1,15 +1,15 @@
 import React from "react";
 
-export default function DrumPads({ playVid }) {
+export default function DrumPads({ playAudio }) {
   return (
     <div>
-      <div id="drum-machine">
+      <div>
         <div id="display">
           <div className="drum-pad-rows">
             <div
               className="drum-pad"
               id="Heater-1"
-              onClick={() => playVid("Q")}
+              onClick={() => playAudio("Q")}
             >
               Q
               <audio id="Q" className="clip">
@@ -22,7 +22,7 @@ export default function DrumPads({ playVid }) {
             <div
               className="drum-pad"
               id="Heater-2"
-              onClick={() => playVid("W", "Heater-2")}
+              onClick={() => playAudio("W", "Heater-2")}
             >
               W
               <audio id="W" className="clip">
@@ -35,7 +35,7 @@ export default function DrumPads({ playVid }) {
             <div
               className="drum-pad"
               id="Heater-3"
-              onClick={() => playVid("E", "Heater-3")}
+              onClick={() => playAudio("E", "Heater-3")}
             >
               E
               <audio id="E" className="clip">
@@ -50,7 +50,7 @@ export default function DrumPads({ playVid }) {
             <div
               className="drum-pad"
               id="RP4_KICK_1"
-              onClick={() => playVid("A")}
+              onClick={() => playAudio("A")}
             >
               A
               <audio id="A" className="clip">
@@ -63,7 +63,7 @@ export default function DrumPads({ playVid }) {
             <div
               className="drum-pad"
               id="Heater-6"
-              onClick={() => playVid("S")}
+              onClick={() => playAudio("S")}
             >
               S
               <audio id="S" className="clip">
@@ -73,7 +73,11 @@ export default function DrumPads({ playVid }) {
                 />
               </audio>
             </div>
-            <div className="drum-pad" id="Chord_1" onClick={() => playVid("D")}>
+            <div
+              className="drum-pad"
+              id="Chord_1"
+              onClick={() => playAudio("D")}
+            >
               D
               <audio id="D" className="clip">
                 <source
@@ -84,7 +88,11 @@ export default function DrumPads({ playVid }) {
             </div>
           </div>
           <div className="drum-pad-rows">
-            <div className="drum-pad" id="Chord_2" onClick={() => playVid("Z")}>
+            <div
+              className="drum-pad"
+              id="Chord_2"
+              onClick={() => playAudio("Z")}
+            >
               Z
               <audio id="Z" className="clip">
                 <source
@@ -93,7 +101,11 @@ export default function DrumPads({ playVid }) {
                 />
               </audio>
             </div>
-            <div className="drum-pad" id="Chord_3" onClick={() => playVid("X")}>
+            <div
+              className="drum-pad"
+              id="Chord_3"
+              onClick={() => playAudio("X")}
+            >
               X
               <audio id="X" className="clip">
                 <source
@@ -105,7 +117,7 @@ export default function DrumPads({ playVid }) {
             <div
               className="drum-pad"
               id="punchy_kick_1"
-              onClick={() => playVid("C")}
+              onClick={() => playAudio("C")}
             >
               C
               <audio id="C" className="clip">

@@ -12,7 +12,7 @@ export default function DrumMachine() {
       const myKeys = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
       myKeys.map(key => {
         if (e.key.toUpperCase() === key) {
-          playVid(e.key.toUpperCase());
+          playAudio(e.key.toUpperCase());
         } else {
           return null;
         }
@@ -50,17 +50,18 @@ export default function DrumMachine() {
   }
 
   // 1. Play the sound function from HTML5 audio when clicked
-  const playVid = str1 => {
-    var vid = document.getElementById(str1);
-    vid.play();
+  const playAudio = str1 => {
+    var audio = document.getElementById(str1);
+    audio.currentTime = 0;
+    audio.play();
     console.log("clicked", str1);
     const str = mapIds(str1);
     setCurrentPlayedSound(str);
   };
 
   return (
-    <div>
-      <DrumPads playVid={playVid} />
+    <div id="drum-machine">
+      <DrumPads playAudio={playAudio} />
       <Display valueToLogOut={currentPlayedSound} />
     </div>
   );
