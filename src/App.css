@@ -1,15 +1,30 @@
+#mainDrumMachineWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(to right, #044504, #2d882d);
+}
+
+#mainDrumMachineWrapper h1 {
+  color: #e1fee1;
+  margin-bottom: 20px;
+}
+
 #drum-machine {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  border: 1px solid red;
+  width: 500px;
+  height: 400px;
+  border: 5px solid #e1fee1;
+  background-image: linear-gradient(to right, #2d882d, #7ccb7c);
 }
 
 #display {
   flex-direction: column;
-  border: 1px solid green;
 }
 
 .drum-pad-rows {
@@ -20,8 +35,49 @@
   width: 80px;
   height: 80px;
   margin: 10px;
-  border: 1px solid yellow;
+  border: 2px solid #044504;
   justify-content: center;
   align-items: center;
   display: flex;
+  background-color: #2d882d;
+  border-radius: 20px;
+  font-size: 30px;
+  color: #000100;
+}
+
+#currentID {
+  border: 2px solid #e1fee1;
+  color: #000100;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+#currentID h4 {
+  font-size: 21px;
+}
+
+@media (max-width: 599px) {
+  #drum-machine {
+    width: 300px;
+    height: auto;
+    flex-direction: column;
+  }
+  .drum-pad {
+    width: 70px;
+    height: 70px;
+  }
+  #currentID {
+    width: 150px;
+    height: 80px;
+  }
+
+  #currentID h4 {
+    font-size: 20px;
+  }
 }

@@ -4,7 +4,8 @@ import DrumMachine from "./components/DrumMachine";
 
 function App() {
   return (
-    <div>
+    <div id="mainDrumMachineWrapper">
+      <h1>Play Me!</h1>
       <DrumMachine />
     </div>
   );
